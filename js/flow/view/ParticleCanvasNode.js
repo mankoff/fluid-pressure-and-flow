@@ -35,31 +35,31 @@ define( function( require ) {
      * @param {CanvasContextWrapper} wrapper
      */
     paintCanvas: function( wrapper ) {
-      var context = wrapper.context;
-      var particle, i;
-
-      // paint the regular particles
-      for ( i = 0; i < this.particles.length; i++ ) {
-        particle = this.particles.get( i );
-        context.fillStyle = particle.color;
-        context.beginPath();
-        context.arc( this.modelViewTransform.modelToViewX( particle.xPosition ),
-          this.modelViewTransform.modelToViewY( particle.getY() ),
-          this.modelViewTransform.modelToViewDeltaX( particle.radius ), 0, 2 * Math.PI, true );
-        context.fill();
-      }
-
-      // paint the grid particles
-      for ( i = 0; i < this.gridParticles.length; i++ ) {
-        particle = this.gridParticles.get( i );
-        context.fillStyle = particle.color;
-        context.beginPath();
-        context.arc( this.modelViewTransform.modelToViewX( particle.xPosition ),
-          this.modelViewTransform.modelToViewY( particle.getY() ),
-          this.modelViewTransform.modelToViewDeltaX( particle.radius ), 0, 2 * Math.PI, true );
-        context.fill();
-      }
-
+//      var context = wrapper.context;
+//      var particle, i;
+//
+//      // paint the regular particles
+//      for ( i = 0; i < this.particles.length; i++ ) {
+//        particle = this.particles.get( i );
+//        context.fillStyle = particle.color;
+//        context.beginPath();
+//        context.arc( this.modelViewTransform.modelToViewX( particle.xPosition ),
+//          this.modelViewTransform.modelToViewY( particle.getY() ),
+//          this.modelViewTransform.modelToViewDeltaX( particle.radius ), 0, 2 * Math.PI, true );
+//        context.fill();
+//      }
+//
+//      // paint the grid particles
+//      for ( i = 0; i < this.gridParticles.length; i++ ) {
+//        particle = this.gridParticles.get( i );
+//        context.fillStyle = particle.color;
+//        context.beginPath();
+//        context.arc( this.modelViewTransform.modelToViewX( particle.xPosition ),
+//          this.modelViewTransform.modelToViewY( particle.getY() ),
+//          this.modelViewTransform.modelToViewDeltaX( particle.radius ), 0, 2 * Math.PI, true );
+//        context.fill();
+//      }
+//
     },
 
     step: function() {

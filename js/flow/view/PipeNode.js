@@ -17,6 +17,7 @@ define( function( require ) {
   var Vector2 = require( 'DOT/Vector2' );
   var ParticleCanvasNode = require( 'FLUID_PRESSURE_AND_FLOW/flow/view/ParticleCanvasNode' );
   var Bounds2 = require( 'DOT/Bounds2' );
+  var Rectangle = require( 'SCENERY/nodes/Rectangle' );
 
   // images
   var leftPipeImage = require( 'image!FLUID_PRESSURE_AND_FLOW/pipe-left-front.png' );
@@ -114,6 +115,33 @@ define( function( require ) {
       { canvasBounds: new Bounds2( 20, 80, 800, 600 )
       } );
     this.addChild( this.particlesLayer );
+
+    var myParticleLayer = new Node();
+    var rectangles = [];
+    for ( var i = 0; i < 100; i++ ) {
+      var rectangle = new Rectangle( 0, 0, 20, 20, {fill: 'green'} );
+      rectangles.push( rectangle );
+      myParticleLayer.addChild( rectangle );
+    }
+
+    this.flowModel.on( 'step', function() {
+      for ( var i = 0; i < flowModel.flowParticles.length; i++ ) {
+        var particle = flowModel.flowParticles.get( i );
+        var x = pipeNode.modelViewTransform.modelToViewX( particle.xPosition );
+        var y = pipeNode.modelViewTransform.modelToViewY( particle.getY() );
+        if ( i < rectangles.length - 1 ) {
+          rectangle = rectangles[i];
+          rectangle.centerX = x;
+          rectangle.centerY = y;
+        }
+      }
+//      if ( flowModel.flowParticles.length > 0 ) {
+//        var particle = flowModel.flowParticles.get( 0 );
+//
+//      }
+    } );
+
+    this.addChild( myParticleLayer );
     this.addChild( this.pipeFlowLine );
 
     this.addChild( this.rightPipeNode );

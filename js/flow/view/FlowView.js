@@ -61,7 +61,7 @@ define( function( require ) {
   function FlowView( flowModel ) {
 
     var flowView = this;
-    ScreenView.call( this, { renderer: 'svg' } );
+    ScreenView.call( this, { renderer: 'webgl' } );
 
     // view co-ordinates (370,140) map to model origin (0,0) with inverted y-axis (y grows up in the model)
     var modelViewTransform = ModelViewTransform2.createSinglePointScaleInvertedYMapping(
@@ -220,16 +220,16 @@ define( function( require ) {
     var touchAreaHeightExpansion = radioButtonSpacing / 2;
     slowMotionRadioBox.touchArea = new Bounds2(
       slowMotionRadioBox.localBounds.minX,
-      slowMotionRadioBox.localBounds.minY - touchAreaHeightExpansion,
+        slowMotionRadioBox.localBounds.minY - touchAreaHeightExpansion,
       ( slowMotionRadioBox.localBounds.minX + speedControlMaxWidth ),
-      slowMotionRadioBox.localBounds.maxY + touchAreaHeightExpansion
+        slowMotionRadioBox.localBounds.maxY + touchAreaHeightExpansion
     );
 
     normalMotionRadioBox.touchArea = new Bounds2(
       normalMotionRadioBox.localBounds.minX,
-      normalMotionRadioBox.localBounds.minY - touchAreaHeightExpansion,
+        normalMotionRadioBox.localBounds.minY - touchAreaHeightExpansion,
       ( normalMotionRadioBox.localBounds.minX + speedControlMaxWidth ),
-      normalMotionRadioBox.localBounds.maxY + touchAreaHeightExpansion
+        normalMotionRadioBox.localBounds.maxY + touchAreaHeightExpansion
     );
 
     var speedControl = new VBox( {

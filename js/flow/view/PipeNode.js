@@ -124,22 +124,22 @@ define( function( require ) {
       myParticleLayer.addChild( rectangle );
     }
 
-    this.flowModel.on( 'step', function() {
-      for ( var i = 0; i < flowModel.flowParticles.length; i++ ) {
-        var particle = flowModel.flowParticles.get( i );
-        var x = pipeNode.modelViewTransform.modelToViewX( particle.xPosition );
-        var y = pipeNode.modelViewTransform.modelToViewY( particle.getY() );
-        if ( i < rectangles.length - 1 ) {
-          rectangle = rectangles[i];
-          rectangle.centerX = x;
-          rectangle.centerY = y;
-        }
-      }
-//      if ( flowModel.flowParticles.length > 0 ) {
-//        var particle = flowModel.flowParticles.get( 0 );
-//
+//    this.flowModel.on( 'step', function() {
+//      for ( var i = 0; i < flowModel.flowParticles.length; i++ ) {
+//        var particle = flowModel.flowParticles.get( i );
+//        var x = pipeNode.modelViewTransform.modelToViewX( particle.xPosition );
+//        var y = pipeNode.modelViewTransform.modelToViewY( particle.getY() );
+//        if ( i < rectangles.length - 1 ) {
+//          rectangle = rectangles[i];
+//          rectangle.centerX = x;
+//          rectangle.centerY = y;
+//        }
 //      }
-    } );
+////      if ( flowModel.flowParticles.length > 0 ) {
+////        var particle = flowModel.flowParticles.get( 0 );
+////
+////      }
+//    } );
 
     this.addChild( myParticleLayer );
     this.addChild( this.pipeFlowLine );
